@@ -4,7 +4,7 @@
 
 ### **Generates a random password based on several user inputs**
 
-link goes here. 
+[Password Generator Link](https://jweibelbootcamp.github.io/Password-Generator/)
 
 ### **Description**
 * This is a password generator that accepts a series of user inputs to determine password length and password character sets, choosing from: uppercase letters, lowercase letters, numbers, and special characters. 
