@@ -1,48 +1,49 @@
-var charNumber;
+var generateBtn = document.querySelector("#generate");
+
+var length;
 var upperCase;
 var lowerCase;
 var numbers;
 var specialChars;
 
-var promptCheck; //makes sure an acceptable character count is entered
-
-//write a generatePassword();  put all user prompts inside this function.
-
 function generatePassword() {
-  charNumber = prompt("How many characters would you like?\n(Between 8 and 128)");
-  //Prompt text entry only returns string values.  Button Click only returns boolean values. Convert strings.
+  console.log("Button Click Worked!");
 
-  if (typeof(charNumber) != "number") { //will always be a string... how to check
-    charNumber = prompt("Enter a number between 8 and 128.");
-    else if (charNumber < 8 || typeof(charNumber) != "number") {
-      charNumber = prompt("Enter a number between 8 and 128.");
-  } else if (charNumber > 128) {
-    charNumber = prompt("Enter a number between 8 and 128.");
+  //1.  prompt the user to enter information
+
+  //    password length variable:  
+  length = prompt("How many characters would you like in your password?");
+    console.log(length);
+     
+  if (+length > 7 && +length < 129) {
+    length = +length; //converts length value from string to number.
+    console.log(length);
+  } else if (length === null) { //allows cancel button to work.
+    return " "
   } else {
-    promptCheck = true;   
+      length = alert("Enter a number between 8 and 128."); 
+      generatePassword();
   }
-
-  //Now charNumber should have an acceptable value and promptCheck should have a value of true.  
-
-  if (promptCheck == true) {
-    upperCase = prompt("Would you like to include Uppercase Characters?\n(OK = yes, Cancel = no)"); //i assume this assigns a boolean value to upperCase.
-  }
-
-  lowerCase = prompt("Would you like to include Lowercase Characters?\n(OK = yes, Cancel = no)");
-
-  numbers = prompt("Would you like to include Numbers?\n(OK = yes, Cancel = no)");
-
-  specialChars = prompt("Would you like to include Special Characters?\n(OK = yes, Cancel = no)");
-}
+  // Password character length stored in var length.   
 
 
-//Create an array instead of a long string to contain with every possible password character.
 
-//Generate the password
-//use a loop to randomly select from each 'True' character type 'charNumber' number of times.
+  //    b.  whether uppercase, lowercase, numbers, special chars
+  //2.  validate the input - acceptable char length, at least one character type, acceptable character types. 
+  //3.  generate the password
+  //    a.  randomize the confirmed character types the selected amount of times. 
+  //4.  display the password on the screen
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+
+
+
+
+
+
+
+  return "Generated password will go here."
+};
+
 
 // Write password to the #password input
 function writePassword() {
@@ -50,7 +51,75 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
 }
 
 // Add event listener to "Generate Password" button
 generateBtn.addEventListener("click", writePassword);
+
+//new code effort above here
+
+// var charNumber;
+// var upperCase;
+// var lowerCase;
+// var numbers;
+// var specialChars;
+
+// var promptCheck; //makes sure an acceptable character count is entered
+
+//   //Prompt text entry only returns string values.  Button Click only returns boolean values. Convert strings to numbers with Number().
+
+// function generatePassword() {
+
+//   charNumber = prompt("How many characters would you like in your password?");
+  
+//   Number(charNumber); //converts user input string type to number type
+
+//   while (charNumber != ) {
+//     charNumber = prompt("Enter a number between 8 and 128.");
+//   }
+
+//   if (charNumber > 7 && charNumber < 129) {
+//     promptCheck = true;
+//   } else {
+//     promptCheck = false;
+//   }
+
+//   for (promptCheck) {//not done here
+//     charNumber = prompt("Enter a number between 8 and 128.");
+//   }
+
+
+//  // Now charNumber should have an acceptable value and promptCheck should have a value of true.  
+
+//   if (promptCheck == true) {
+//     upperCase = prompt("Would you like to include Uppercase Characters?\n(OK = yes, Cancel = no)"); //i assume this assigns a boolean value to upperCase.
+//   }
+
+//   lowerCase = prompt("Would you like to include Lowercase Characters?\n(OK = yes, Cancel = no)");
+
+//   numbers = prompt("Would you like to include Numbers?\n(OK = yes, Cancel = no)");
+
+//   specialChars = prompt("Would you like to include Special Characters?\n(OK = yes, Cancel = no)");
+// }
+
+
+// //Create an array instead of a long string to contain with every possible password character.
+
+// //Generate the password
+// //use a loop to randomly select from each 'True' character type 'charNumber' number of times.
+
+// // Get references to the #generate element
+// var generateBtn = document.querySelector("#generate");
+
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+
+//   passwordText.value = password;
+
+// }
+
+// // Add event listener to "Generate Password" button
+// generateBtn.addEventListener("click", writePassword);
