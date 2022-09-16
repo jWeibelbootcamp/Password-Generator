@@ -1,16 +1,10 @@
 var generateBtn = document.querySelector("#generate");
 
-var length;
-var upperCase;
-var lowerCase;
-var numbers;
-var specialChars;
-
 function generatePassword() {
   console.log("Button Click Worked!");
 
   // Password length variable:  
-  length = prompt("How many characters would you like in your password?");
+  var length = prompt("How many characters would you like in your password?");
     console.log(length);
      
   if (+length > 7 && +length < 129) {
@@ -27,29 +21,29 @@ function generatePassword() {
   // Uppercase, lowercase, numbers, and special characters variables:
   var charChoices = [];
   
-  upperCase = confirm("Would you like to include Uppercase Characters?");
+  var upperCase = confirm("Would you like to include Uppercase Characters?");
   if (upperCase === true) {
     charChoices.push(upperCase);
   }
 
-  lowerCase = confirm("Would you like to include Lowercase Characters?");
+  var lowerCase = confirm("Would you like to include Lowercase Characters?");
   if (lowerCase === true) {
     charChoices.push(lowerCase);
   }
 
-  numbers = confirm("Would you like to include Numbers?");
+  var numbers = confirm("Would you like to include Numbers?");
   if (numbers === true) {
     charChoices.push(numbers);
   }
 
-  specialChars = confirm("Would you like to include Special Characters?");
+  var specialChars = confirm("Would you like to include Special Characters?");
   if (specialChars === true) {
     charChoices.push(specialChars);
   }
   
   console.log(charChoices); 
 
-  if (charChoices == 0) { // //Was at least one character type selected?
+  if (charChoices.length == 0) { // //Was at least one character type selected?
     alert("Please select at least one character type.");
     generatePassword();
   }
