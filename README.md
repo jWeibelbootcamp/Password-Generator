@@ -1,6 +1,6 @@
 # Password-Generator
 
-![screenshot](assets/images/Password-Generator-Screenshot.png)
+![screenshot](assets/images/password-screenshot.png)
 
 ### **Generates a random password based on several user inputs**
 
