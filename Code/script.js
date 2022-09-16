@@ -9,9 +9,7 @@ var specialChars;
 function generatePassword() {
   console.log("Button Click Worked!");
 
-  //1.  prompt the user to enter information
-
-  //    password length variable:  
+  // Password length variable:  
   length = prompt("How many characters would you like in your password?");
     console.log(length);
      
@@ -26,12 +24,43 @@ function generatePassword() {
   }
   // Password character length stored in var length.   
 
+  // Uppercase, lowercase, numbers, and special characters variables:
+  var charChoices = [];
+  
+  upperCase = confirm("Would you like to include Uppercase Characters?");
+  if (upperCase === true) {
+    charChoices.push(upperCase);
+  }
+
+  lowerCase = confirm("Would you like to include Lowercase Characters?");
+  if (lowerCase === true) {
+    charChoices.push(lowerCase);
+  }
+
+  numbers = confirm("Would you like to include Numbers?");
+  if (numbers === true) {
+    charChoices.push(numbers);
+  }
+
+  specialChars = confirm("Would you like to include Special Characters?");
+  if (specialChars === true) {
+    charChoices.push(specialChars);
+  }
+  
+  console.log(charChoices); 
+
+  if (charChoices == 0) { // //Was at least one character type selected?
+    alert("Please select at least one character type.");
+    generatePassword();
+  }
+  // User Inputs Complete.  var length has character count.  other vars have true or false selected.
 
 
-  //    b.  whether uppercase, lowercase, numbers, special chars
-  //2.  validate the input - acceptable char length, at least one character type, acceptable character types. 
+
+
   //3.  generate the password
   //    a.  randomize the confirmed character types the selected amount of times. 
+  //            math.floor(math.random())
   //4.  display the password on the screen
 
 
