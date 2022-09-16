@@ -31,9 +31,9 @@ function generatePassword() {
     charChoices.push(lowerCase);
   }
 
-  var numbers = confirm("Would you like to include Numbers?");
-  if (numbers === true) {
-    charChoices.push(numbers);
+  var numberChars = confirm("Would you like to include Numbers?");
+  if (numberChars === true) {
+    charChoices.push(numberChars);
   }
 
   var specialChars = confirm("Would you like to include Special Characters?");
@@ -49,11 +49,35 @@ function generatePassword() {
   }
   // User Inputs Complete.  var length has character count.  other vars have true or false selected.
 
+  var uppers = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var lowers = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var numbers = ["0","1","2","3","4","5","6","7","8","9"];
+  var symbols = ["!","#","$",",","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\","^",","`","{","|","}","~"];
+  
+  var acceptableChars = [];
+
+  if (upperCase === true) { //check if upper case is needed
+    acceptableChars = acceptableChars.concat(uppers);
+  }
+
+  if (lowerCase === true) {
+    acceptableChars = acceptableChars.concat(lowers);
+  }
+
+  if (numberChars === true) {
+    acceptableChars = acceptableChars.concat(numbers);
+  }
+
+  if (specialChars === true) {
+    acceptableChars = acceptableChars.concat(symbols);
+  }
+
+  console.log(acceptableChars);   //concatenation check
+  // Array acceptableChars now contains all possible characters for random selection.
+
+  // create loop to randomly draw from acceptableChars length number of times.
 
 
-
-  //3.  generate the password
-  //    a.  randomize the confirmed character types the selected amount of times. 
   //            math.floor(math.random())
   //4.  display the password on the screen
 
